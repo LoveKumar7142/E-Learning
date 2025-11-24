@@ -1,6 +1,7 @@
 import TryCatch from "../middlewares/TryCatch.js";
 import { Courses } from "../models/caurse.model.js";
 import { Lacture } from "../models/Lacture.model.js";
+import { rm } from "fs"
 
 export const createCourse = TryCatch(async (req,res) => {
     const {title,description,category,createdBy,duration,price} = req.body
@@ -50,3 +51,9 @@ export const addLectures = TryCatch(
         })
     }
 )
+
+export const deleteLacture = TryCatch(async (req,res) => {
+    const lecture = await Lacture.findById(req.params.id)
+
+    
+})
