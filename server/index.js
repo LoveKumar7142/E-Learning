@@ -1,7 +1,13 @@
 import express from "express"
 import dotenv from "dotenv"
 import { connectDb } from "./database/db.js";
+import razorpay from "razorpay"
 dotenv.config()
+
+export const instance = new Razorpay({
+    key_id:process.env.RAZERPAY_TEST_API_KEY,
+    key_secret:process.env.RAZERPAY_TEST_KEY_SECRET,
+})
 
 const app = express()
 
@@ -21,6 +27,7 @@ app.get('/',(req,res)=>{
 import userRoutes from "./routes/user.route.js"
 import courseRoutes from "./routes/course.route.js"
 import adminRoutes from "./routes/admin.route.js"
+import Razorpay from "razorpay";
 
 
 //using route
